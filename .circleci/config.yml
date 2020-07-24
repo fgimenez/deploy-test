@@ -36,7 +36,7 @@ jobs:
       - checkout
       - run:
           command: |
-            publish image
+            echo publish image
 
   publishChart:
     docker:
@@ -45,7 +45,7 @@ jobs:
       - checkout
       - run:
           command: |
-            publish chart
+            echo publish chart
 
   deployProduction:
       docker:
