@@ -74,14 +74,20 @@ workflows:
           filters:
             tags:
               only: /.*/
+            branches:
+              ignore: /master/
       - buildImage:
           filters:
             tags:
               only: /.*/
+            branches:
+              ignore: /master/
       - integrationTests:
           filters:
             tags:
               only: /.*/
+            branches:
+              ignore: /master/
           requires:
             - lint
             - buildImage
@@ -109,8 +115,6 @@ workflows:
             - integrationTests
       - deployProduction:
           filters:
-            branches:
-              only: /production/
             tags:
               only: /v[0-9]+(\.[0-9]+)*$/
           requires:
